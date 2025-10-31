@@ -40,7 +40,7 @@ jobs:
       - name: Cell Host & Microbe
         uses: nahuelhds/rss-entries-fetch-action@v0.3.0
         with:
-          feed_urls: http://www.cell.com/cell-host-microbe/current.rss
+          feed_urls: https://www.cell.com/cell-host-microbe/current.rss
           destination_folder: ./${{ env.DATE_FOLDER }}/cellhostmicrobe
 
       - name: mSystems
