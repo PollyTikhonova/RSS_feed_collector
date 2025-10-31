@@ -26,7 +26,7 @@ jobs:
         run: echo "DATE_FOLDER=$(date +'%Y%m%d')" >> $GITHUB_ENV
         
       - name: Get current timestamp
-        id: date_step
+        id: time_step
         run: echo "TIME_FOLDER=$(date +'%s')" >> $GITHUB_ENV
 
       - name: BMC Microbiome
