@@ -1,0 +1,68 @@
+# This is a basic workflow to help you get started with Actions
+
+- name: RSS Feed Fetch Action
+
+# Controls when the workflow will run
+on:
+  push:
+    branches:
+      - main
+      
+  schedule:
+    # Runs every 4h
+    - cron: '0 */4 * * *'
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  fetch-rss:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Get current date
+        id: date_step
+        run: echo "DATE_FOLDER=$(date +'%Y%m%d')" >> $GITHUB_ENV
+
+      - name: BMC Microbiome
+        uses: nahuelhds/rss-fetch-action@v0
+        with:
+          feed_urls: https://microbiomejournal.biomedcentral.com/articles/most-recent/rss.xml
+          destination_folder: ./${{ env.DATE_FOLDER }}/bmcmicrobiome
+
+      - name: Springer
+        uses: nahuelhds/rss-fetch-action@v0
+        with:
+          feed_urls: http://link.springer.com/search.rss?facet-content-type=Article&facet-journal-id=40168&channel-name=Microbiome
+          destination_folder: ./${{ env.DATE_FOLDER }}/springer
+
+      - name: Cell Host & Microbe
+        uses: nahuelhds/rss-fetch-action@v0
+        with:
+          feed_urls: http://www.cell.com/cell-host-microbe/current.rss
+          destination_folder: ./${{ env.DATE_FOLDER }}/cellhostmicrobe
+
+      - name: mSystems
+        uses: nahuelhds/rss-fetch-action@v0
+        with:
+          feed_urls: https://journals.asm.org/action/showFeed?type=etoc&feed=rss&jc=MSYSTEMS
+          destination_folder: ./${{ env.DATE_FOLDER }}/msystems
+
+      - name: Nature Genetics
+        uses: nahuelhds/rss-fetch-action@v0
+        with:
+          feed_urls: http://www.nature.com/ng/current_issue/rss/
+          destination_folder: ./${{ env.DATE_FOLDER }}/natgenetics
+
+      - name: Nature Immunology
+        uses: nahuelhds/rss-fetch-action@v0
+        with:
+          feed_urls: http://feeds.nature.com/ni/rss/current
+          destination_folder: ./${{ env.DATE_FOLDER }}/natimmunology
+
+      - name: Commit and push changes to the repository
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "Update RSS articles"
