@@ -38,11 +38,17 @@ jobs:
           feed_urls: https://pubmed.ncbi.nlm.nih.gov/rss/journals/101615147/?limit=15&name=Microbiome&utm_campaign=journals
           destination_folder: ./${{ env.DATE_FOLDER }}/bmcmicrobiome
 
+      - name: Sleep for 10 seconds
+        run: sleep 10s
+
       - name: Cell Host & Microbe
         uses: nahuelhds/rss-entries-fetch-action@v0.3.0
         with:
           feed_urls: https://pubmed.ncbi.nlm.nih.gov/rss/journals/101302316/?limit=15&name=Cell%20Host%20Microbe&utm_campaign=journals
           destination_folder: ./${{ env.DATE_FOLDER }}/cellhostmicrobe
+
+      - name: Sleep for 10 seconds
+        run: sleep 10s
 
       - name: mSystems
         uses: nahuelhds/rss-entries-fetch-action@v0.3.0
@@ -50,11 +56,17 @@ jobs:
           feed_urls: https://pubmed.ncbi.nlm.nih.gov/rss/journals/101680636/?limit=15&name=mSystems&utm_campaign=journals
           destination_folder: ./${{ env.DATE_FOLDER }}/msystems
 
+      - name: Sleep for 10 seconds
+        run: sleep 10s
+
       - name: Nature Genetics
         uses: nahuelhds/rss-entries-fetch-action@v0.3.0
         with:
           feed_urls: https://pubmed.ncbi.nlm.nih.gov/rss/journals/9216904/?limit=15&name=Nat%20Genet&utm_campaign=journals
           destination_folder: ./${{ env.DATE_FOLDER }}/natgenetics
+
+      - name: Sleep for 10 seconds
+        run: sleep 10s
 
       - name: Nature Immunology
         uses: nahuelhds/rss-entries-fetch-action@v0.3.0
