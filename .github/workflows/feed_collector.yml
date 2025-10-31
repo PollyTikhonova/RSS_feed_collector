@@ -24,6 +24,10 @@ jobs:
       - name: Get current date
         id: date_step
         run: echo "DATE_FOLDER=$(date +'%Y%m%d')" >> $GITHUB_ENV
+        
+      - name: Get current timestamp
+        id: date_step
+        run: echo "TIME_FOLDER=$(date +'%s')" >> $GITHUB_ENV
 
       - name: BMC Microbiome
         uses: nahuelhds/rss-entries-fetch-action@v0.3.0
@@ -43,11 +47,23 @@ jobs:
       #     feed_urls: https://www.cell.com/cell-host-microbe/current.rss
       #     destination_folder: ./${{ env.DATE_FOLDER }}/cellhostmicrobe
 
-      - name: mSystems
-        uses: nahuelhds/rss-entries-fetch-action@v0.3.0
+      # - name: mSystems
+      #   uses: nahuelhds/rss-entries-fetch-action@v0.3.0
+      #   with:
+      #     feed_urls: https://journals.asm.org/action/showFeed?type=etoc&feed=rss&jc=MSYSTEMS
+      #     destination_folder: ./${{ env.DATE_FOLDER }}/msystems
+
+      - name: Cell Host & Microbe
+        uses: Promptly-Technologies-LLC/rss-fetch-action@v2
         with:
-          feed_urls: https://journals.asm.org/action/showFeed?type=etoc&feed=rss&jc=MSYSTEMS
-          destination_folder: ./${{ env.DATE_FOLDER }}/msystems
+          feed_urls: https://www.cell.com/cell-host-microbe/current.rss
+          file_path: ./${{ env.DATE_FOLDER }}/cellhostmicrobe/${{ env.TIME_FOLDER }}
+
+      - name: mSystems
+        uses: Promptly-Technologies-LLC/rss-fetch-action@v2
+        with:
+          feed_url: 'https://journals.asm.org/action/showFeed?type=etoc&feed=rss&jc=MSYSTEMS'
+          file_path: ./${{ env.DATE_FOLDER }}/msystems/${{ env.TIME_FOLDER }}
 
       - name: Nature Genetics
         uses: nahuelhds/rss-entries-fetch-action@v0.3.0
