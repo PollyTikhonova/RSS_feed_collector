@@ -57,13 +57,13 @@ jobs:
         uses: Promptly-Technologies-LLC/rss-fetch-action@v2
         with:
           feed_url: https://www.cell.com/cell-host-microbe/current.rss
-          file_path: ./${{ env.DATE_FOLDER }}/cellhostmicrobe/${{ env.TIME_FOLDER }}
+          file_path: ./${{ env.DATE_FOLDER }}/cellhostmicrobe/${{ env.TIME_FOLDER }}.json
 
       - name: mSystems
         uses: Promptly-Technologies-LLC/rss-fetch-action@v2
         with:
           feed_url: 'https://journals.asm.org/action/showFeed?type=etoc&feed=rss&jc=MSYSTEMS'
-          file_path: ./${{ env.DATE_FOLDER }}/msystems/${{ env.TIME_FOLDER }}
+          file_path: ./${{ env.DATE_FOLDER }}/msystems/${{ env.TIME_FOLDER }}.json
 
       - name: Nature Genetics
         uses: nahuelhds/rss-entries-fetch-action@v0.3.0
