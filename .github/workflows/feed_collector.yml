@@ -35,61 +35,31 @@ jobs:
       - name: BMC Microbiome
         uses: nahuelhds/rss-entries-fetch-action@v0.3.0
         with:
-          feed_urls: https://microbiomejournal.biomedcentral.com/articles/most-recent/rss.xml
+          feed_urls: https://pubmed.ncbi.nlm.nih.gov/rss/journals/101615147/?limit=15&name=Microbiome&utm_campaign=journals
           destination_folder: ./${{ env.DATE_FOLDER }}/bmcmicrobiome
 
-      - name: Springer
-        uses: nahuelhds/rss-entries-fetch-action@v0.3.0
-        with:
-          feed_urls: http://link.springer.com/search.rss?facet-content-type=Article&facet-journal-id=40168&channel-name=Microbiome
-          destination_folder: ./${{ env.DATE_FOLDER }}/springer
-
-      # - name: Cell Host & Microbe
-      #   uses: nahuelhds/rss-entries-fetch-action@v0.3.0
-      #   with:
-      #     feed_urls: https://www.cell.com/cell-host-microbe/current.rss
-      #     destination_folder: ./${{ env.DATE_FOLDER }}/cellhostmicrobe
-      
       - name: Cell Host & Microbe
         uses: nahuelhds/rss-entries-fetch-action@v0.3.0
         with:
           feed_urls: https://pubmed.ncbi.nlm.nih.gov/rss/journals/101302316/?limit=15&name=Cell%20Host%20Microbe&utm_campaign=journals
           destination_folder: ./${{ env.DATE_FOLDER }}/cellhostmicrobe
 
-      # - name: mSystems
-      #   uses: nahuelhds/rss-entries-fetch-action@v0.3.0
-      #   with:
-      #     feed_urls: https://journals.asm.org/action/showFeed?type=etoc&feed=rss&jc=MSYSTEMS
-      #     destination_folder: ./${{ env.DATE_FOLDER }}/msystems
-
-      # - name: mSystems
-      #   uses: nahuelhds/rss-entries-fetch-action@v0.3.0
-      #   with:
-      #     feed_urls: https://pubmed.ncbi.nlm.nih.gov/rss/journals/101680636/?limit=15&name=mSystems&utm_campaign=journals
-      #     destination_folder: ./${{ env.DATE_FOLDER }}/msystems
-
-      # - name: Cell Host & Microbe
-      #   uses: Promptly-Technologies-LLC/rss-fetch-action@v2
-      #   with:
-      #     feed_url: https://www.cell.com/cell-host-microbe/current.rss
-      #     file_path: ./${{ env.DATE_FOLDER }}/cellhostmicrobe/${{ env.TIME_FOLDER }}.json
-
-      # - name: mSystems
-      #   uses: Promptly-Technologies-LLC/rss-fetch-action@v2
-      #   with:
-      #     feed_url: 'https://journals.asm.org/action/showFeed?type=etoc&feed=rss&jc=MSYSTEMS'
-      #     file_path: ./${{ env.DATE_FOLDER }}/msystems/${{ env.TIME_FOLDER }}.json
+      - name: mSystems
+        uses: nahuelhds/rss-entries-fetch-action@v0.3.0
+        with:
+          feed_urls: https://pubmed.ncbi.nlm.nih.gov/rss/journals/101680636/?limit=15&name=mSystems&utm_campaign=journals
+          destination_folder: ./${{ env.DATE_FOLDER }}/msystems
 
       - name: Nature Genetics
         uses: nahuelhds/rss-entries-fetch-action@v0.3.0
         with:
-          feed_urls: http://www.nature.com/ng/current_issue/rss/
+          feed_urls: https://pubmed.ncbi.nlm.nih.gov/rss/journals/9216904/?limit=15&name=Nat%20Genet&utm_campaign=journals
           destination_folder: ./${{ env.DATE_FOLDER }}/natgenetics
 
       - name: Nature Immunology
         uses: nahuelhds/rss-entries-fetch-action@v0.3.0
         with:
-          feed_urls: http://feeds.nature.com/ni/rss/current
+          feed_urls: https://pubmed.ncbi.nlm.nih.gov/rss/journals/100941354/?limit=15&name=Nat%20Immunol&utm_campaign=journals
           destination_folder: ./${{ env.DATE_FOLDER }}/natimmunology
 
       - name: Commit and push changes to the repository
