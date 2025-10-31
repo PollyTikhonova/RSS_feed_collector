@@ -26,37 +26,37 @@ jobs:
         run: echo "DATE_FOLDER=$(date +'%Y%m%d')" >> $GITHUB_ENV
 
       - name: BMC Microbiome
-        uses: nahuelhds/rss-fetch-action@v0
+        uses: nahuelhds/rss-entries-fetch-action@v0.3.0
         with:
           feed_urls: https://microbiomejournal.biomedcentral.com/articles/most-recent/rss.xml
           destination_folder: ./${{ env.DATE_FOLDER }}/bmcmicrobiome
 
       - name: Springer
-        uses: nahuelhds/rss-fetch-action@v0
+        uses: nahuelhds/rss-entries-fetch-action@v0.3.0
         with:
           feed_urls: http://link.springer.com/search.rss?facet-content-type=Article&facet-journal-id=40168&channel-name=Microbiome
           destination_folder: ./${{ env.DATE_FOLDER }}/springer
 
       - name: Cell Host & Microbe
-        uses: nahuelhds/rss-fetch-action@v0
+        uses: nahuelhds/rss-entries-fetch-action@v0.3.0
         with:
           feed_urls: http://www.cell.com/cell-host-microbe/current.rss
           destination_folder: ./${{ env.DATE_FOLDER }}/cellhostmicrobe
 
       - name: mSystems
-        uses: nahuelhds/rss-fetch-action@v0
+        uses: nahuelhds/rss-entries-fetch-action@v0.3.0
         with:
           feed_urls: https://journals.asm.org/action/showFeed?type=etoc&feed=rss&jc=MSYSTEMS
           destination_folder: ./${{ env.DATE_FOLDER }}/msystems
 
       - name: Nature Genetics
-        uses: nahuelhds/rss-fetch-action@v0
+        uses: nahuelhds/rss-entries-fetch-action@v0.3.0
         with:
           feed_urls: http://www.nature.com/ng/current_issue/rss/
           destination_folder: ./${{ env.DATE_FOLDER }}/natgenetics
 
       - name: Nature Immunology
-        uses: nahuelhds/rss-fetch-action@v0
+        uses: nahuelhds/rss-entries-fetch-action@v0.3.0
         with:
           feed_urls: http://feeds.nature.com/ni/rss/current
           destination_folder: ./${{ env.DATE_FOLDER }}/natimmunology
