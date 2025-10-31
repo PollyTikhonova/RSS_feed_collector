@@ -56,7 +56,7 @@ jobs:
       - name: Cell Host & Microbe
         uses: Promptly-Technologies-LLC/rss-fetch-action@v2
         with:
-          feed_urls: https://www.cell.com/cell-host-microbe/current.rss
+          feed_url: https://www.cell.com/cell-host-microbe/current.rss
           file_path: ./${{ env.DATE_FOLDER }}/cellhostmicrobe/${{ env.TIME_FOLDER }}
 
       - name: mSystems
